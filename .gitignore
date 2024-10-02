@@ -1,0 +1,11 @@
+### ignore all ###
+/*
+/.**
+
+### except following files ###
+!/.gitignore
+!/README.md
+!/ref.fa
+!/sra_1.fq
+!/sra_2.fq
+cmd.sh
