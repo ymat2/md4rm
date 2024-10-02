@@ -19,7 +19,7 @@
 ## Getting this dataset
 
 ```sh
-git clone https://github.com/ymat2/.git
+git clone https://github.com/ymat2/md4rm.git
 ```
 
 
