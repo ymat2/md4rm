@@ -3,15 +3,14 @@
 
 ## Contents
 
-- `ref.fa`: A reference genome with 150bp.
+- `ref.fa`: A reference genome with 100bp.
   (A random part of chicken genome [GRCg7b](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016699485.2/))
 
-- `sra_1.fq`, `sra_2.fq`: Samples of paired-end fastq files. These fastq files contain 5 reads:
+- `sra_1.fq`, `sra_2.fq`: Samples of paired-end fastq files. These fastq files contain 4 reads:
   - `@read1`: will be mapped.
   - `@read2`: will also be mapped.
   - `@read3`: is a dplicate of read2.
   - `@read4`: The mate will be unmapped.
-  - `@read5`: is a reverse strand read.
 
 - `cmd.sh`: sample codes of [BWA MEM](https://bio-bwa.sourceforge.net/) and [SAMtools](https://www.htslib.org/)
 
@@ -66,3 +65,9 @@ samtools tview small.bam ref.fa  # view with reference
 ## Limitation
 
 All reads will not be mapped in proper pair (i.e. lack `0x002` flag) because there are not enough pairs.
+
+To add `0x002` flag, specify the insert length when read mapping:
+
+```sh
+bwa mem -I 90 ref.fa sra_1.fq sra_2.fq > small.sam
+```
